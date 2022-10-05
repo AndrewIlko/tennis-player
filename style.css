@@ -193,7 +193,8 @@ body {
 .player__statistic-value span {
   font-size: 32px;
 }
-.navigation {
+.navigation__wrapper {
+  position: relative;
   max-width: 1010px;
   width: 100%;
   text-transform: uppercase;
@@ -204,7 +205,11 @@ body {
   font-family: "Roboto", sans-serif;
   border-bottom: 1px solid rgb(0, 0, 0, 0.1);
 }
-.navigation a {
+.navigation {
+  display: flex;
+  gap: 10px;
+}
+.navigation__wrapper a {
   text-decoration: none;
   color: #111111;
 }
@@ -235,6 +240,45 @@ body {
   background-color: rgb(0, 68, 255);
   bottom: 0;
 }
+.burger-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+}
+.burger-menu:hover .burger-dropdown {
+  visibility: visible;
+}
+.burger-menu:hover .burger-menu__btn {
+  color: red;
+}
+.burger-menu__btn {
+  padding: 10px 15px;
+  font-weight: 800;
+}
+.burger-dropdown {
+  visibility: hidden;
+  min-width: 180px;
+  position: absolute;
+  background-color: #fff;
+  list-style: none;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  left: 0;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.burger-dropdown__item {
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.burger-dropdown__item:hover {
+  background-color: rgb(17, 17, 17, 0.075);
+}
+
 .player__content {
   width: 100%;
   margin: 30px 0 0 0;
@@ -250,8 +294,7 @@ body {
 .equipment__item-list {
   display: flex;
   flex-wrap: wrap;
-  row-gap: 5px;
-  justify-content: space-between;
+  row-gap: 10px;
   align-items: center;
 }
 .equipment__item {
@@ -455,6 +498,7 @@ body {
   background-color: #fff;
   padding: 16px;
   scale: 0.25;
+  visibility: hidden;
   transition: all 0.3s ease-in-out;
 
   display: flex;
@@ -463,6 +507,7 @@ body {
   gap: 30px;
 }
 .title-info--active {
+  visibility: visible;
   scale: 1;
 }
 .title__close-btn {
@@ -482,4 +527,55 @@ body {
   flex-direction: column;
   gap: 15px;
   margin-left: 10px;
+}
+@media screen and (max-width: 1024px) {
+  .equipment__item-list {
+    gap: 30px 60px;
+  }
+  .equipment__item {
+    width: fit-content;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .player__latest {
+    flex-direction: column;
+  }
+  .player__latest-column {
+    width: 100%;
+  }
+
+  .equipment__item-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+  .player-img {
+    right: -50px;
+  }
+  .navigation {
+    visibility: hidden;
+  }
+  .burger-menu {
+    visibility: visible;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .player__news-item {
+    flex-direction: column;
+  }
+  .content {
+    padding: 5px 10px;
+  }
+  .content__header {
+    gap: 20px;
+  }
+  .content__switch-text {
+    flex-direction: column;
+  }
+  .player__country-flag {
+    height: 50px;
+    width: 80px;
+  }
 }

@@ -206,6 +206,7 @@ body {
 .navigation {
   display: flex;
   gap: 10px;
+  border:1px solid red;
 }
 .navigation__wrapper a {
   text-decoration: none;
